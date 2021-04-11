@@ -1,6 +1,7 @@
 console.log("LOTR homework js file is connected");
 console.log("HINT: Click on the 'Elements' tab to see the elements that you are creating");
 console.log("---------------")
+console.log("Hi Justin");
 // ==============================
 //       Dramatis Personae
 // ==============================
@@ -47,9 +48,9 @@ const makeMiddleEarth = () => {
   console.log("Trying to make middle earth.");
 
   // 1. create a section tag with an id of middle-earth
-
+const newSection = $("<section id='middle-earth'><section/>");
   // 2. append the section to the body of the DOM.
-
+$("body").append(newSection);
   // 3. use a for loop to iterate over the lands array that does the following:
 
   //   3a. creates an article tag (there should be one for each land when the loop is done)
@@ -59,7 +60,12 @@ const makeMiddleEarth = () => {
   //   3c. includes an h1 with the name of the land inside each land article
 
   //   3d. appends each land to the middle-earth section
-
+  // I am still getting used to jquery so this took me awhile. I struggled adding the individual lands to an h1 for about a solid 45min. Syntax is still something I need to practice on, badly. Finally got it to work tho...I think
+for (let i = 0; i < lands.length; i++){
+    console.log("Are lands working?");
+    const landsArticle = $(`<article id="middle-earth"><h1>${lands[i]}</h1></article>`);
+    $("#middle-earth").append(landsArticle)
+  }
 };
 
 // COMMIT YOUR WORK
