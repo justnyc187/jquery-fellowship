@@ -79,14 +79,30 @@ const makeHobbits = () => {
   console.log('Make hobbits');
 
   // 1. display an unordered list of the hobbits in the shire.
-
   // 2. give each hobbit a class of "hobbit"
+// Worked on this for too long but am really frustrated its not working cause i cant seem to find the error.
+// created new hobbit unordered list
+  const $newHobbitUnordered = $("<ul></ul>");
+//appends The Shire to the new unordered list of hobbits
+  $("#The_Shire").append($newHobbitUnordered);
+//For loop passes through every index and pulls the hobbits out and places them in a new li with the class of hobbit
+  for (let i = 0; i < hobbits.length; i++){
+    const $hobbitList = $(`<ul><li class="hobbit">${hobbits[i]}</li></ul>`);
+  //appends The shire id to the newly created list of hobbits
+
+    $("#The-Shire").append($hobbitList);
+
+    }
+  };
+
+
+
 
   // hint: create a 'ul' outside the loop upon which to append the 'li's
 
   // hint: get 'The-Shire' by using its id
 
-};
+
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 2 complete - Made the Hobbits".
