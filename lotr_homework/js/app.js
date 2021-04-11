@@ -48,9 +48,9 @@ const makeMiddleEarth = () => {
   console.log("Trying to make middle earth.");
 
   // 1. create a section tag with an id of middle-earth
-const newSection = $("<section id='middle-earth'><section/>");
+const newSectionMiddle = $("<section id='middle-earth'><section/>");
   // 2. append the section to the body of the DOM.
-$("body").append(newSection);
+$("body").append(newSectionMiddle);
   // 3. use a for loop to iterate over the lands array that does the following:
 
   //   3a. creates an article tag (there should be one for each land when the loop is done)
@@ -61,9 +61,10 @@ $("body").append(newSection);
 
   //   3d. appends each land to the middle-earth section
   // I am still getting used to jquery so this took me awhile. I struggled adding the individual lands to an h1 for about a solid 45min. Syntax is still something I need to practice on, badly. Finally got it to work tho...I think
+  //realized i didnt have the id's as each land so had to go back and finish
 for (let i = 0; i < lands.length; i++){
     console.log("Are lands working?");
-    const landsArticle = $(`<article id="middle-earth"><h1>${lands[i]}</h1></article>`);
+    const landsArticle = $(`<article id=${lands[i]}><h1>${lands[i]}</h1></article>`);
     $("#middle-earth").append(landsArticle)
   }
 };
@@ -77,22 +78,22 @@ for (let i = 0; i < lands.length; i++){
 const makeHobbits = () => {
 
   console.log('Make hobbits');
+  z
 
+/*
   // 1. display an unordered list of the hobbits in the shire.
   // 2. give each hobbit a class of "hobbit"
 // Worked on this for too long but am really frustrated its not working cause i cant seem to find the error.
 // created new hobbit unordered list
-  const $newHobbitUnordered = $("<ul></ul>");
+  const $newHobbitUn = $("<ul></ul>");
 //appends The Shire to the new unordered list of hobbits
-  $("#The_Shire").append($newHobbitUnordered);
+  $("#The-Shire").append($newHobbitUn);
 //For loop passes through every index and pulls the hobbits out and places them in a new li with the class of hobbit
   for (let i = 0; i < hobbits.length; i++){
-    const $hobbitList = $(`<ul><li class="hobbit">${hobbits[i]}</li></ul>`);
-  //appends The shire id to the newly created list of hobbits
-
-    $("#The-Shire").append($hobbitList);
-
+    $($newHobbitUn).append(`<li>${hobbits[i]}</li>}`);
+  // Dont know what i am doing wrong but have been at this problem for about 2 hours so i am moving on
     }
+    */
   };
 
 
@@ -113,14 +114,17 @@ const makeHobbits = () => {
 const keepItSecretKeepItSafe = () => {
 
   // 1. create an empty div with an id of 'the-ring'
-
+const $theDivRing = $('<div id="The-Ring"></div>');
   // 2. add the ring as a child of Frodo
 
+
+  
   // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
 
   // when you think you have given Frodo the ring, check in your Elements tab
 
 };
+
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 3 complete - Made the ring and gave it to Frodo".
@@ -131,9 +135,14 @@ const keepItSecretKeepItSafe = () => {
 const makeBaddies = () => {
 
   // 1. display an unordered list of baddies in Mordor
-
+  const $baddiesList = $("<ul id='Baddies-List'>");
+  $("#Mordor").append($baddiesList);
   // 2. give each of the baddies a class of "baddy"
+  for(let i = 0; i < baddies.length; i++){
 
+    const $listItemBaddy = $(`<li class="baddy">${baddies[i]}</li>`);
+    $($baddiesList).append($listItemBaddy);
+  }
   // 3. remember to append them to Mordor
 };
 
