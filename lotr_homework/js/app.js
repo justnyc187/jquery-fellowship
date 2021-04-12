@@ -120,11 +120,12 @@ const makeHobbits = () => {
 const keepItSecretKeepItSafe = () => {
 
   // 1. create an empty div with an id of 'the-ring'
-
-
+  // created empty div called ringDiv with the id of the-ring
+  const divTheRing = $('<div id="the-ring"></div>');
   // 2. add the ring as a child of Frodo
-
-
+  // was stumped on this so I went to google and asked a few classmates and got this
+  // i believe you can also do .querySelectAll but I couldnt figure that out
+  $(".hobbit").eq(0).append(divTheRing);
   
   
   // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
