@@ -62,10 +62,10 @@ $("body").append(newSectionMiddle);
   //   3d. appends each land to the middle-earth section
   // I am still getting used to jquery so this took me awhile. I struggled adding the individual lands to an h1 for about a solid 45min. Syntax is still something I need to practice on, badly. Finally got it to work tho...I think
   //realized i didnt have the id's as each land so had to go back and finish
-for (let i = 0; i < lands.length; i++){
-    console.log("Are lands working?");
-    const landsArticle = $(`<article id=${lands[i]}><h1>${lands[i]}</h1></article>`);
-    $("#middle-earth").append(landsArticle)
+  for (let i = 0; i < lands.length; i++){
+      console.log("Are lands working?");
+      const landsArticle = $(`<article id=${lands[i]}><h1>${lands[i]}</h1></article>`);
+      $("#middle-earth").append(landsArticle)
   }
 };
 
@@ -77,12 +77,12 @@ for (let i = 0; i < lands.length; i++){
 // ============
 const makeHobbits = () => {
 
-  console.log('Make hobbits');
+  console.log('Is Chapter 2 working?');
   
 
 
   // 1. display an unordered list of the hobbits in the shire.
-  const hobbitsTag = $('<ul></ul>');
+  const hobbitsTag = $("<ul></ul>");
   // appends the ul to The Shire
   $("#The-Shire").append(hobbitsTag);
   // 2. give each hobbit a class of "hobbit"
@@ -91,8 +91,9 @@ const makeHobbits = () => {
   // class of hobbit added to the list of each hobbit list item
     const hobbitsList = $(`<ul><li class="hobbit">${hobbits[i]}</li></ul>`);
     // append new list to The Shire
-      $("#The-Shire").append(hobbitsList)
+    $("#The-Shire").append(hobbitsList)
     }
+    
 // Worked on this for too long and then realized I still had to click the middle earth button in order for the hobbits function to work. at least I only wasted 2 hours on that smh
 
 };
@@ -121,7 +122,8 @@ const keepItSecretKeepItSafe = () => {
 
   // 1. create an empty div with an id of 'the-ring'
   // created empty div called ringDiv with the id of the-ring
-  const divTheRing = $('<div id="the-ring"></div>');
+  const divTheRing = $("<div id='the-ring'></div>");
+  console.log("Is Chapter 3 working?");
   // 2. add the ring as a child of Frodo
   // was stumped on this so I went to google and asked a few classmates and got this
   // i believe you can also do .querySelectAll but I couldnt figure that out
@@ -145,16 +147,16 @@ const makeBaddies = () => {
 
   // 1. display an unordered list of baddies in Mordor
   // created new ul called baddiesList
-  const $baddieList = $("<ul></ul>")
+  const baddieList = $("<ul></ul>")
   console.log("Baddies List");
   // 2. give each of the baddies a class of "baddy"
   // for loop for our baddies array, which pulls out the baddies indices and puts the into a ul with li class of "baddy", and then appends them to the ul baddiesList which is appended to mordor
   for (let i = 0; i < baddies.length; i++){
-    const $specificBaddiesList = $(`<li class ="baddy">${baddies[i]}</li>`);
+    const specificBaddiesList = $(`<ul><li class ="baddy">${baddies[i]}</li></ul>`);
   // appends new li to baddielist ul
-    $($baddieList).append($specificBaddiesList);
+    $(baddieList).append(specificBaddiesList);
   }
-  $("#Mordor").append($baddieList);
+  $("#Mordor").append(baddieList);
 
   // 3. remember to append them to Mordor
 };
@@ -168,11 +170,20 @@ const makeBaddies = () => {
 const makeBuddies = () => {
 
   // 1. create an aside tag and append it to middle-earth below mordor
-
+  // aside tag called asideTag
+  const asideTag = $("<aside></aside>");
+  // apoended to Mordor
+  $("#Mordor").after(asideTag);
+  // Test
+  console.log("Chapter 5 working?");
   // 2. display an unordered list of buddies in the aside
-
+  // for loop for out buddies array that will take all of the idices of buddies and place them into our buddiesAside that we are giving a class of "buddy"
+  for (let i = 0; i < buddies.length; i++){
+    const buddiesAside = $(`<ul class="buddy">${buddies[i]}></ul>`);
+  // append our new buddies aside
+    $(asideTag).append(buddiesAside);
+  }
   // 3. give each of the buddies a class of "buddy"
-
 };
 
 // COMMIT YOUR WORK
@@ -184,7 +195,11 @@ const makeBuddies = () => {
 const leaveTheShire = () => {
 
   // 1. grab the hobbits (the ul in which they reside) and move them to Rivendell
-
+  // we can grab the hobbits by using .children and grabbing the children of the id The-Shire, which is the article's id
+    const hobbitsOnTheMove = $("#The-Shire").children();
+    console.log("Is Chapter 6 working");
+  // append hobbitsOnTheMove to Rivendell
+    $("#Rivendell").append(hobbitsOnTheMove);
   // hint: the hobbits ul is a childNode of The-Shire-- there is way to get a list of childNodes
 
 };
@@ -212,9 +227,11 @@ const beautifulStranger = () => {
 const forgeTheFellowShip = () => {
 
   // 1. create a new div with an id 'the-fellowship'
-
+  const fellowShip = $("<div id='the-fellowship'><h1>The Fellowship<h1><div>");
   // 2. add an h1 with the text 'The Fellowship' to this new div
-
+  $("#middle-earth").append(fellowShip);
+  console.log("Is Chapter 8 working?");
+  
   // 3. append the fellowship to middle-earth
 
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
