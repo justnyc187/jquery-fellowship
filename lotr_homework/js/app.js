@@ -78,23 +78,29 @@ for (let i = 0; i < lands.length; i++){
 const makeHobbits = () => {
 
   console.log('Make hobbits');
-  z
+  
 
-/*
+
   // 1. display an unordered list of the hobbits in the shire.
+  const hobbitsTag = $('<ul></ul>');
+  // appends the ul to The Shire
+  $("#The-Shire").append(hobbitsTag);
   // 2. give each hobbit a class of "hobbit"
-// Worked on this for too long but am really frustrated its not working cause i cant seem to find the error.
-// created new hobbit unordered list
-  const $newHobbitUn = $("<ul></ul>");
-//appends The Shire to the new unordered list of hobbits
-  $("#The-Shire").append($newHobbitUn);
-//For loop passes through every index and pulls the hobbits out and places them in a new li with the class of hobbit
-  for (let i = 0; i < hobbits.length; i++){
-    $($newHobbitUn).append(`<li>${hobbits[i]}</li>}`);
-  // Dont know what i am doing wrong but have been at this problem for about 2 hours so i am moving on
+  // for loop to loop through hobbits array
+  for(let i = 0; i <hobbits.length; i++) {
+  // class of hobbit added to the list of each hobbit list item
+    const hobbitsList = $(`<ul><li class="hobbit">${hobbits[i]}</li></ul>`);
+    // append new list to The Shire
+      $("#The-Shire").append(hobbitsList)
     }
-    */
-  };
+// Worked on this for too long and then realized I still had to click the middle earth button in order for the hobbits function to work. at least I only wasted 2 hours on that smh
+
+};
+
+
+
+    
+    
 
 
 
@@ -114,10 +120,12 @@ const makeHobbits = () => {
 const keepItSecretKeepItSafe = () => {
 
   // 1. create an empty div with an id of 'the-ring'
-const $theDivRing = $('<div id="The-Ring"></div>');
+
+
   // 2. add the ring as a child of Frodo
 
 
+  
   
   // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
 
@@ -135,14 +143,11 @@ const $theDivRing = $('<div id="The-Ring"></div>');
 const makeBaddies = () => {
 
   // 1. display an unordered list of baddies in Mordor
-  const $baddiesList = $("<ul id='Baddies-List'>");
-  $("#Mordor").append($baddiesList);
-  // 2. give each of the baddies a class of "baddy"
-  for(let i = 0; i < baddies.length; i++){
 
-    const $listItemBaddy = $(`<li class="baddy">${baddies[i]}</li>`);
-    $($baddiesList).append($listItemBaddy);
-  }
+  // 2. give each of the baddies a class of "baddy"
+  
+
+
   // 3. remember to append them to Mordor
 };
 
