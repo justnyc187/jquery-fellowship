@@ -48,9 +48,9 @@ const makeMiddleEarth = () => {
   console.log("Trying to make middle earth.");
 
   // 1. create a section tag with an id of middle-earth
-const newSectionMiddle = $("<section id='middle-earth'><section/>");
+  const newSectionMiddle = $("<section id='middle-earth'><section/>");
   // 2. append the section to the body of the DOM.
-$("body").append(newSectionMiddle);
+  $("body").append(newSectionMiddle);
   // 3. use a for loop to iterate over the lands array that does the following:
 
   //   3a. creates an article tag (there should be one for each land when the loop is done)
@@ -92,7 +92,7 @@ const makeHobbits = () => {
     const hobbitsList = $(`<ul><li class="hobbit">${hobbits[i]}</li></ul>`);
     // append new list to The Shire
     $("#The-Shire").append(hobbitsList)
-    }
+  }
     
 // Worked on this for too long and then realized I still had to click the middle earth button in order for the hobbits function to work. at least I only wasted 2 hours on that smh
 
@@ -125,8 +125,8 @@ const keepItSecretKeepItSafe = () => {
   const divTheRing = $("<div id='the-ring'></div>");
   console.log("Is Chapter 3 working?");
   // 2. add the ring as a child of Frodo
-  // was stumped on this so I went to google and asked a few classmates and got this
-  // i believe you can also do .querySelectAll but I couldnt figure that out
+  // was stumped on this so I went to google and asked a few classmates who pointed me in the direction of the class notes
+  // 
   $(".hobbit").eq(0).append(divTheRing);
   
   
@@ -196,10 +196,10 @@ const leaveTheShire = () => {
 
   // 1. grab the hobbits (the ul in which they reside) and move them to Rivendell
   // we can grab the hobbits by using .children and grabbing the children of the id The-Shire, which is the article's id
-    const hobbitsOnTheMove = $("#The-Shire").children();
-    console.log("Is Chapter 6 working");
+  const hobbitsOnTheMove = $("#The-Shire").children();
+  console.log("Is Chapter 6 working");
   // append hobbitsOnTheMove to Rivendell
-    $("#Rivendell").append(hobbitsOnTheMove);
+  $("#Rivendell").append(hobbitsOnTheMove);
   // hint: the hobbits ul is a childNode of The-Shire-- there is way to get a list of childNodes
 
 };
@@ -213,7 +213,8 @@ const leaveTheShire = () => {
 const beautifulStranger = () => {
 
   // 1. change the buddy 'Strider' textnode to "Aragorn"
-
+  // We can use .eq() here again to target the 3rd index of the buddy aside, we can grab buddy by the .buddy class tag
+  $(".buddy").eq(3).html("Aragorn")
   // hint: You can get a list of elements by tag name, such as 'aside'
 
 };
