@@ -82,7 +82,7 @@ const makeHobbits = () => {
 
 
   // 1. display an unordered list of the hobbits in the shire.
-  const hobbitsTag = $("<ul id='hobbits'></ul>");
+  const hobbitsTag = $("<ul></ul>");
   // appends the ul to The Shire
   $("#The-Shire").append(hobbitsTag);
   // 2. give each hobbit a class of "hobbit"
@@ -233,15 +233,20 @@ const forgeTheFellowShip = () => {
   // appended our newly created h1 'The Fellowship' to middle-earth
   $("#middle-earth").append(fellowShip);
   console.log("Is Chapter 8 working?");
-  // I cant for the life of me get this to work, I have tried appending by grabbing the class of the buddies and hobbits lists, i tried .appendTo, i tried creating id's for the hobbits and i cant seem to grab them correctly 
-  $(fellowShip).append("#hobbits");
-  $("#hobbits").appendTo(fellowShip);
-  $(fellowShip).append(".hobbit");
-  $(fellowShip).append(".buddy");
   // 3. append the fellowship to middle-earth
 
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
+  // I cant for the life of me get this to work, I have tried appending by grabbing the class of the buddies and hobbits lists, i tried .appendTo, i tried creating id's for the hobbits and i cant seem to grab them correctly 
+  
+  $(".hobbit").attr('id', 'hobbits');
+  $(fellowShip).append("#hobbits");
+  //$("#hobbits").appendTo(fellowShip);
+  //$(fellowShip).append(".hobbit");
+  //$(fellowShip).append(".buddy");
 
+
+
+  //$(".buddy").eq(4).attr('id', 'Boromir');
 };
 
 // COMMIT YOUR WORK
@@ -256,7 +261,7 @@ const theBalrog = () => {
   // 2. add a class "the-white" to this element
   // grab our buddy aside using the class .buddy and can access the first index of aside using eq(0) and change the html to Gandalf the White
   $(".buddy").eq(0).html("Gandalf the White");
-  // again we can access the aside using the .buddy class tag and addClass of the-white to the newly chanfed Gandalf the White element. I believe this is right but the buddy class is also still attached to the Gandlaf the White, sooooooo I am not 100% on this one, maybe i used the wrong method??
+  // again we can access the aside using the .buddy class tag and addClass of the-white to the newly chanfed Gandalf the White element. I believe this is right but the buddy class is also still attached to the Gandlaf the White, sooooooo I am not 100% on this one, maybe i used the wrong method?? Maybe .eq doesnt work here???
   $(".buddy").eq(0).addClass("the-white");
   // 3. in the style.css file, add a css rule to make elements of the class "the-white" have a white background and a grey border
   /* It doesnt look the best but I think this is what we were asked to do, copied here to make it easier
@@ -278,11 +283,14 @@ const theBalrog = () => {
 const hornOfGondor = () => {
 
   // 1. create a pop-up alert that the horn of gondor has been blown
-
+  window.alert("The Horn of Gndor has blown")
   // 2. Boromir's been killed by the Uruk-hai! Put a linethrough on Boromir's name
-
+  // not gonna lie, answering this one was big. I was struggling on it for a long time. Big victory
+  // so i accessed the asside again using my new favoirte friend eq(), then gave Boromir an id of Borimor so i could access it in css and put a line through. Since it already had a class of buddy i had to make it more specific so i could only access Borimor in the aside as opposed to the whole class.
+  $(".buddy").eq(4).attr('id', 'Boromir');
   // 3. Tricky: Remove the Uruk-Hai from the Baddies on the page
-
+  // access the list of baddies using the baddy class and remove the Uruk-Hai using .remove
+  $(".baddy").eq(2).remove();
 };
 
 // COMMIT YOUR WORK
@@ -294,9 +302,13 @@ const hornOfGondor = () => {
 const itsDangerousToGoAlone = () => {
 
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
-
+  // struggled with this a bit cause i forgot that when you use appendTo the order is reversed and the selector precedes the method. i think you can use .splice here to pull Fordo and Sam but i couldnt figure that out and i am obviously getting comfortable with .eq()
+  $(".hobbit").eq(0).appendTo("#Mordor");
+  $(".hobbit").eq(1).appendTo("#Mordor");
+  //$(".hobbit").eq(0, 1).appendTo("#Mordor");
   // 2. add a div with an id of 'mount-doom' to Mordor
-
+  // pretty straight forward 
+  $("#Mordor").append("<div id='mount-doom'></div>");
 };
 
 // COMMIT YOUR WORK
@@ -308,10 +320,13 @@ const itsDangerousToGoAlone = () => {
 const weWantsIt = () => {
 
   // 1. Create a div with an id of 'gollum' and add it to Mordor
-
+  //created another div with the id of gollum appended it to Mordor
+  $("#Mordor").append("<div id='gollum'.</div>");
   // 2. Move the ring from Frodo and give it to Gollum
-
+  // used appendTo again, appendTo is starting to  makes more logical sense when i read it out in my head
+  $("#the-ring").appendTo("#gollum");
   // 3. Move Gollum into Mount Doom
+  $("#gollum").appendTo("#mount-doom")
 
 };
 

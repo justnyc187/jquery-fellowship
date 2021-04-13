@@ -16,6 +16,9 @@ h1 {
   background-color: rgb(255, 255, 255);
   border: rgb(128, 128, 128);
 }
+#Boromir {
+  text-decoration: line-through;
+}
 #buttons {
     position: fixed;
     top: 20px;
