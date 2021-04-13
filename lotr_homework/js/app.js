@@ -82,7 +82,7 @@ const makeHobbits = () => {
 
 
   // 1. display an unordered list of the hobbits in the shire.
-  const hobbitsTag = $("<ul></ul>");
+  const hobbitsTag = $("<ul id='hobbits'></ul>");
   // appends the ul to The Shire
   $("#The-Shire").append(hobbitsTag);
   // 2. give each hobbit a class of "hobbit"
@@ -230,9 +230,14 @@ const forgeTheFellowShip = () => {
   // 1. create a new div with an id 'the-fellowship'
   const fellowShip = $("<div id='the-fellowship'><h1>The Fellowship<h1><div>");
   // 2. add an h1 with the text 'The Fellowship' to this new div
+  // appended our newly created h1 'The Fellowship' to middle-earth
   $("#middle-earth").append(fellowShip);
   console.log("Is Chapter 8 working?");
-  
+  // I cant for the life of me get this to work, I have tried appending by grabbing the class of the buddies and hobbits lists, i tried .appendTo, i tried creating id's for the hobbits and i cant seem to grab them correctly 
+  $(fellowShip).append("#hobbits");
+  $("#hobbits").appendTo(fellowShip);
+  $(fellowShip).append(".hobbit");
+  $(fellowShip).append(".buddy");
   // 3. append the fellowship to middle-earth
 
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
@@ -248,10 +253,19 @@ const forgeTheFellowShip = () => {
 const theBalrog = () => {
 
   // 1. change the 'Gandalf' textNode to 'Gandalf the White'
-
   // 2. add a class "the-white" to this element
-
+  // grab our buddy aside using the class .buddy and can access the first index of aside using eq(0) and change the html to Gandalf the White
+  $(".buddy").eq(0).html("Gandalf the White");
+  // again we can access the aside using the .buddy class tag and addClass of the-white to the newly chanfed Gandalf the White element. I believe this is right but the buddy class is also still attached to the Gandlaf the White, sooooooo I am not 100% on this one, maybe i used the wrong method??
+  $(".buddy").eq(0).addClass("the-white");
   // 3. in the style.css file, add a css rule to make elements of the class "the-white" have a white background and a grey border
+  /* It doesnt look the best but I think this is what we were asked to do, copied here to make it easier
+  .the-white {
+  background-color: rgb(255, 255, 255);
+  border: rgb(128, 128, 128);
+}
+*/
+
 
 };
 

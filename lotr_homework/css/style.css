@@ -10,6 +10,12 @@ h1 {
   font-family: 'Condiment', cursive;
 }
 
+/* thought i would use rgb to spice it up a little */
+
+.the-white {
+  background-color: rgb(255, 255, 255);
+  border: rgb(128, 128, 128);
+}
 #buttons {
     position: fixed;
     top: 20px;
