@@ -196,11 +196,19 @@ const leaveTheShire = () => {
 
   // 1. grab the hobbits (the ul in which they reside) and move them to Rivendell
   // we can grab the hobbits by using .children and grabbing the children of the id The-Shire, which is the article's id
+  // I realized right before i was about to submit that the entire h1 The Shire moves when i try to move the hobbits list to Rivendell, i think i did something wrong in Chapter 1 but i cant figure it out 
+  // thought this would grab the children of the the id=The-Shire??
+ /*
+  
   const hobbitsOnTheMove = $("#The-Shire").children();
   console.log("Is Chapter 6 working");
   // append hobbitsOnTheMove to Rivendell
   $("#Rivendell").append(hobbitsOnTheMove);
   // hint: the hobbits ul is a childNode of The-Shire-- there is way to get a list of childNodes
+*/
+// not sure if this is what we are looking for here, but after a long long time trying to figure it out i finally got this to move just the hobbits and not the h1 and the hobbits. realized i could also add an id tag to the hobbits and pull them that way also
+
+  $(".hobbit").appendTo("#Rivendell");
 
 };
 
@@ -259,7 +267,7 @@ const theBalrog = () => {
 
   // 1. change the 'Gandalf' textNode to 'Gandalf the White'
   // 2. add a class "the-white" to this element
-  // grab our buddy aside using the class .buddy and can access the first index of aside using eq(0) and change the html to Gandalf the White
+  // grab our buddy aside using the class .buddy and can access the first index of aside using eq(0) and change the html to Gandalf the White using the .html method
   $(".buddy").eq(0).html("Gandalf the White");
   // again we can access the aside using the .buddy class tag and addClass of the-white to the newly chanfed Gandalf the White element. I believe this is right but the buddy class is also still attached to the Gandlaf the White, sooooooo I am not 100% on this one, maybe i used the wrong method?? Maybe .eq doesnt work here???
   $(".buddy").eq(0).addClass("the-white");
@@ -326,6 +334,7 @@ const weWantsIt = () => {
   // used appendTo again, appendTo is starting to  makes more logical sense when i read it out in my head
   $("#the-ring").appendTo("#gollum");
   // 3. Move Gollum into Mount Doom
+  // used appendTo again and got this creepy little gollum pic to apppend to mount-doom
   $("#gollum").appendTo("#mount-doom")
 
 };
@@ -339,11 +348,17 @@ const weWantsIt = () => {
 const thereAndBackAgain = () => {
 
   // 1. remove Gollum and the Ring from the DOM
-
+  // made this so much harder than it needed to be. 
+  //$("#middle-earth").remove("#the-ring");
+  //$("#middle-earth").remove("#the-ring");
+  $("#gollum").remove();
+  
   // 2. remove all the baddies from the DOM
-
+  // called on the baddies list by the class .baddy and removed using the .remove method
+  // still need to get better at remembering what to call on
+  $(".baddy").remove();
   // 3. Move all the hobbits back to the shire
-
+$(".hobbit").appendTo("#The-Shire");
 };
 
 // COMMIT YOUR WORK
