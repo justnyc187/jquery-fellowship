@@ -312,6 +312,7 @@ const itsDangerousToGoAlone = () => {
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
   // struggled with this a bit cause i forgot that when you use appendTo the order is reversed and the selector precedes the method. i think you can use .splice here to pull Fordo and Sam but i couldnt figure that out and i am obviously getting comfortable with .eq()
   $(".hobbit").eq(0).appendTo("#Mordor");
+  
   $(".hobbit").eq(1).appendTo("#Mordor");
   //$(".hobbit").eq(0, 1).appendTo("#Mordor");
   // 2. add a div with an id of 'mount-doom' to Mordor
