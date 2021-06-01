@@ -236,18 +236,19 @@ const beautifulStranger = () => {
 const forgeTheFellowShip = () => {
 
   // 1. create a new div with an id 'the-fellowship'
-  const fellowShip = $("<div id='the-fellowship'><h1>The Fellowship<h1><div>");
+  const newDiv = $(`<div id=the-fellowship> <h1>The Fellowship<h1> <div>`);
   // 2. add an h1 with the text 'The Fellowship' to this new div
   // appended our newly created h1 'The Fellowship' to middle-earth
-  $("#middle-earth").append(fellowShip);
+  $("#middle-earth").append(newDiv);
   console.log("Is Chapter 8 working?");
   // 3. append the fellowship to middle-earth
 
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
   // I cant for the life of me get this to work, I have tried appending by grabbing the class of the buddies and hobbits lists, i tried .appendTo, i tried creating id's for the hobbits and i cant seem to grab them correctly 
   
-  $(".hobbit").attr('id', 'hobbits');
-  $(fellowShip).append("#hobbits");
+  let $Hobbit = $(".hobbit");
+  let $Buddies = $(".buddy");
+  $("#the-fellowship").append($Hobbit, $Buddies);
   //$("#hobbits").appendTo(fellowShip);
   //$(fellowShip).append(".hobbit");
   //$(fellowShip).append(".buddy");
